@@ -34,6 +34,7 @@ timeToken=ВРЕМЯ ЖИЗНИ ТОКЕНА
 ```
 Для клиента:
 ```sh
-npm install --production
-NODE_ENV=production node app
+cd client
+npm i
+npm start
 ```
