@@ -1,10 +1,11 @@
 import React from "react";
+import { Container, Col, Row } from "react-bootstrap";
 
 const ObjectPage = () => {
   return (
-  <div>
+  <Container>
       ObjectPage
-  </div>
+  </Container>
   );
 };
 
