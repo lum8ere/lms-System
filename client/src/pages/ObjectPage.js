@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
-import { Document, Page, pdfjs } from "react-pdf";
+import SubObjectList from "../components/SubObjectList"
 
 const ObjectPage = () => {
-
   return (
     <Container className="mt-3">
-        Test
+      <Row className="mt-3">
+        <Col md={9}>
+          <SubObjectList />
+        </Col>
+      </Row>
     </Container>
   );
 };

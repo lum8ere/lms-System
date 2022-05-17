@@ -1,11 +1,16 @@
 import React, { useContext, useState } from "react";
 import { observer } from "mobx-react-lite";
-import { ListGroup } from "react-bootstrap";
 import { Context } from "../index";
 import { Document, Page, pdfjs } from "react-pdf";
+import { Button } from "react-bootstrap";
 
 const DirectionBar = observer(() => {
-  const { file } = useContext(Context);
+  // const { file } = useContext(Context);
+
+  const file = {
+    id: 1,
+    pfd: `https://cors-anywhere.herokuapp.com/http://www.ihst.ru/projects/sohist/books/bronstein.pdf`,
+  };
 
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
   const [numPages, setNumPages] = useState(null);
@@ -43,21 +48,23 @@ const DirectionBar = observer(() => {
           Page {pageNumber || (numPages ? 1 : "--")} of {numPages || "--"}
         </div>
         <div className="buttonc">
-          <button
+          <Button
+            variant="outline-dark"
             type="button"
             disabled={pageNumber <= 1}
             onClick={previousPage}
             className="Pre"
           >
-            Previous
-          </button>
-          <button
+            Предыдушая
+          </Button>
+          <Button
+            variant="outline-dark"
             type="button"
             disabled={pageNumber >= numPages}
             onClick={nextPage}
           >
-            Next
-          </button>
+            Следующая
+          </Button>
         </div>
       </div>
     </div>

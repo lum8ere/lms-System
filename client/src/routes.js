@@ -1,6 +1,7 @@
 import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
 import ObjectPage from "./pages/ObjectPage";
+import SubObjectPage from "./pages/SubObjectPage";
 import Shop from "./pages/Shop";
 import { ADMIN_ROUTE, LOGIN_ROUTE, OBJECT_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE, SUBOBJECT_ROUTE } from "./utils/consts";
 
@@ -30,6 +31,6 @@ export const publicRoutes = [
       },
       {
         path: SUBOBJECT_ROUTE + '/:id',
-        Component: ObjectPage,
+        Component: SubObjectPage,
       },
 ];
