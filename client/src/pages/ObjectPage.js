@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Col, Row } from "react-bootstrap";
+import { Document, Page, pdfjs } from "react-pdf";
 
 const ObjectPage = () => {
+
   return (
-  <Container>
-      ObjectPage
-  </Container>
+    <Container className="mt-3">
+        Test
+    </Container>
   );
 };
 

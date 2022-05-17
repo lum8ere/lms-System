@@ -6,12 +6,13 @@ const ApiError = require("../error/ApiError");
 class ObjectController {
   async create(req, res, next) {
     try {
-      const { name, objectId } = req.body;
+      const { name, subobjectId } = req.body;
       const { pfd } = req.files;
-      let fileName = uuid.v4() + ".pdf";
+      const cors = "https://cors-anywhere.herokuapp.com/";
+      let fileName = cors + uuid.v4() + ".pdf";
       pfd.mv(path.resolve(__dirname, "..", "static", fileName));
 
-      const file = await File.create({ name, objectId, pfd: fileName });
+      const file = await File.create({ name, subobjectId, pfd: fileName });
 
       return res.json(file);
     } catch (e) {
@@ -20,12 +21,12 @@ class ObjectController {
   }
 
   async get(req, res) {
-    let { objectId, limit, page } = req.query;
+    let { subobjectId, limit, page } = req.query;
     page = page || 1;
     limit = limit || 10;
     let offset = page * limit - limit;
     let Files;
-    if (!objectId) {
+    if (!subobjectId) {
         Files = await File.findAndCountAll({ limit, offset });
     }
 

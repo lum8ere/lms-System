@@ -20,6 +20,17 @@ const ObjectInfo = sequelize.define("objectinfo", {
   discription: { type: DataTypes.STRING, allowNull: true },
 });
 
+const SubObject = sequelize.define("subobject", {
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+  name: { type: DataTypes.STRING, unique: true, allowNull: true },
+});
+
+const SubObjectInfo = sequelize.define("subobjectinfo", {
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+  title: { type: DataTypes.STRING, unique: true, allowNull: true },
+  discription: { type: DataTypes.STRING, allowNull: true },
+});
+
 const Directions = sequelize.define("directions", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   name: { type: DataTypes.STRING, unique: true, allowNull: true },
@@ -48,8 +59,14 @@ Object.belongsTo(Group);
 Object.hasMany(File);
 File.belongsTo(Object);
 
+Object.hasMany(SubObject);
+SubObject.belongsTo(Object);
+
 Object.hasMany(ObjectInfo, {as: 'info'});
 ObjectInfo.belongsTo(Object);
+
+SubObject.hasMany(SubObjectInfo, {as: 'info'});
+SubObjectInfo.belongsTo(SubObject);
 
 Directions.belongsToMany(Group, { through: GroupDirections });
 Group.belongsToMany(Directions, { through: GroupDirections });
@@ -61,5 +78,7 @@ module.exports = {
   Directions,
   GroupDirections,
   Group,
-  File
+  File,
+  SubObject,
+  SubObjectInfo
 };
