@@ -3,8 +3,8 @@ const ApiError = require('../error/ApiError');
 
 class DirectionController {
     async create(req, res) {
-        const {name} = req.body;
-        const direction = await Directions.create({name})
+        const { name } = req.body;
+        const direction = await Directions.create({ name })
         return res.json(direction);
     }
 

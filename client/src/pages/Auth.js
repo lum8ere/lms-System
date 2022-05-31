@@ -7,6 +7,7 @@ const Auth = () => {
   const location = useLocation();
   const isLogin = location.pathname === LOGIN_ROUTE;
 
+
   return (
     <Container 
       className="d-flex justify-content-center align-items-center"

@@ -5,7 +5,8 @@ import ObjectStore from './store/ObjectStore';
 import UserStore from './store/UserStore';
 import SubObject from './store/SubObjectStore';
 
-export const Context = createContext(null)
+export const Context = createContext(null);
+
 
 ReactDOM.render(
   <Context.Provider value={{
